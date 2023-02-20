@@ -11,6 +11,3 @@
     <nuxt />
   </div>
 </template>
-    <nuxt />
-  </div>
-</template>

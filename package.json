@@ -2,7 +2,10 @@
   "name": "bshof",
   "version": "1.0.0",
   "private": true,
-
+  "engines": {
+    "node": "19.0.1",
+    "npm": "8.19.2"
+  },
   "scripts": {
     "dev": "nuxt",
     "build": "nuxt build",

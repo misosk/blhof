@@ -1,7 +1,9 @@
 <template>
   <div>
-    <h1>About</h1>
-    <p>
+    <h1 class="mt-4">
+      About
+    </h1>
+    <p class="mt-4">
       The Open-source Beat Saber Hall of Fame Project is a community-driven effort to create a centralized platform for ranking, comparing, and tracking players' progression in the popular rhythm game, Beat Saber. The project is built entirely using open-source technologies and is available to anyone who wishes to use it.
 
       At its core, the project provides a global leaderboard that displays the top-performing players. Users can also filter the leaderboard by country, region, or friend group, allowing them to see how they stack up against their peers.

@@ -12,7 +12,7 @@
         text-variant="white"
       >
         <b-card-body>
-          You can easy add friend to this hall
+          You can easily add friends to your hall!
         </b-card-body>
 
         <b-card-footer>

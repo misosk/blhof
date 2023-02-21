@@ -1,7 +1,7 @@
 <template>
   <b-navbar toggleable="lg" type="dark" variant="info">
     <b-navbar-brand href="#">
-      NavBar
+      BSHoF
     </b-navbar-brand>
 
     <b-navbar-toggle target="nav-collapse" />
@@ -12,16 +12,16 @@
           Home
         </b-nav-item>
 
-        <b-nav-item to="/about">
-          About Nekos
+        <b-nav-item to="/friends">
+          Friends
         </b-nav-item>
 
-        <b-nav-item to="/test">
-          Test
+        <b-nav-item to="/about">
+          About BSHoF
         </b-nav-item>
 
         <b-nav-item href="#" disabled>
-          Disabled
+          Patreon?
         </b-nav-item>
       </b-navbar-nav>
 
@@ -55,7 +55,7 @@
             <em>User</em>
           </template>
           <b-dropdown-item href="#">
-            Profile
+            My Profile
           </b-dropdown-item>
           <b-dropdown-item href="#">
             Sign Out

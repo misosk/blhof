@@ -9,11 +9,11 @@
     class="mb-2"
   >
     <b-card-text>
-      Some quick example text to build on the card title and make up the bulk of the card's content.
+      Ready to start adding friends? Hit the blue button below to add someone!
     </b-card-text>
 
     <b-button href="#" variant="primary" @click="clickOnMe">
-      Go somewhere
+      Add a friend!
     </b-button>
   </b-card>
 </template>

@@ -7,11 +7,9 @@
     tag="article"
     style="max-width: 20rem;"
     class="mb-2"
+    bg-variant="dark"
+    text-variant="white"
   >
-    <b-card-text>
-      Ready to start adding friends? Hit the blue button below to add someone!
-    </b-card-text>
-
     <b-button href="#" variant="primary" @click="clickOnMe">
       Add a friend!
     </b-button>
@@ -19,6 +17,10 @@
 </template>
 
 <script>
+function $ (s) {
+
+}
+
 export default {
   name: 'TestPage',
   data () {
@@ -28,7 +30,21 @@ export default {
   },
   methods: {
     clickOnMe () {
-      this.title = 'Unknown'
+      const userName = prompt('Please Input your Scoresaber Profile ID (Number Only)')
+
+      fetch('https://new.scoresaber.com/api/player/' + userName + '/full').then(
+        async (Response) => {
+          const data = await Response.json()
+          console.log(data)
+          // eslint-disable-next-line no-unused-expressions
+          data.playerInfo.playerName
+          $('#playerName').text(data.playerInfo.playerName)
+          $('#avatar').attr('src', 'https://new.scoresaber.com' + data.playerInfo.avatar)
+          $('#rank').text(data.playerInfo.rank)
+          $('#countryRank').text(data.playerInfo.countryRank)
+          $('#PP').text(data.playerInfo.pp)
+        }
+      )
     }
   }
 }

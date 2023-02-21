@@ -1,6 +1,6 @@
 <template>
   <b-row class="mt-4">
-    <b-col cols="4" class="mb-4">
+    <b-col cols="12" lg="4" class="mb-4">
       <b-card
         img-src="https://upload.wikimedia.org/wikipedia/commons/9/91/Beat_Saber_Logo.png"
         :title="title"
@@ -27,7 +27,8 @@
     <b-col
       v-for="(friend, i) in friends"
       :key="i"
-      cols="4"
+      cols="12"
+      lg="4"
       class="mb-4"
     >
       <b-card

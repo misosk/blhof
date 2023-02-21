@@ -1,48 +1,75 @@
 <template>
-  <b-card
-    img-src="https://upload.wikimedia.org/wikipedia/commons/9/91/Beat_Saber_Logo.png"
-    :title="title"
-    img-alt="https://upload.wikimedia.org/wikipedia/commons/9/91/Beat_Saber_Logo.png"
-    img-top
-    tag="article"
-    style="max-width: 20rem;"
-    class="mb-2"
-    bg-variant="dark"
-    text-variant="white"
-  >
-    <b-button href="#" variant="primary" @click="clickOnMe">
-      Add a friend!
-    </b-button>
-  </b-card>
+  <b-row class="mt-4">
+    <b-col cols="4" class="mb-4">
+      <b-card
+        img-src="https://upload.wikimedia.org/wikipedia/commons/9/91/Beat_Saber_Logo.png"
+        :title="title"
+        img-alt="https://upload.wikimedia.org/wikipedia/commons/9/91/Beat_Saber_Logo.png"
+        img-top
+        tag="article"
+        class="mb-2"
+        bg-variant="dark"
+        text-variant="white"
+      >
+        <b-card-body>
+          You can easy add friend to this hall
+        </b-card-body>
+
+        <b-card-footer>
+          <b-input v-model="idToAdd" />
+          <b-button href="#" variant="primary" :disabled="!idToAdd" @click="clickOnMe">
+            Add a friend!
+          </b-button>
+        </b-card-footer>
+      </b-card>
+    </b-col>
+
+    <b-col
+      v-for="(friend, i) in friends"
+      :key="i"
+      cols="4"
+      class="mb-4"
+    >
+      <b-card
+        :img-src="friend.avatar"
+        :title="friend.playerName"
+      >
+        <b-card-body>
+          PP: {{ friend.pp }}<br>
+          countryRank: {{ friend.countryRank }}<br>
+          rank: {{ friend.rank }}
+        </b-card-body>
+      </b-card>
+    </b-col>
+  </b-row>
 </template>
 
 <script>
-function $ (s) {
-
-}
-
 export default {
   name: 'TestPage',
   data () {
     return {
-      title: 'Add a Friend'
+      title: 'Add a Friend',
+      idToAdd: '76561198202677324',
+      friends: []
     }
   },
   methods: {
     clickOnMe () {
-      const userName = prompt('Please Input your Scoresaber Profile ID (Number Only)')
-
-      fetch('https://new.scoresaber.com/api/player/' + userName + '/full').then(
+      fetch('https://new.scoresaber.com/api/player/' + this.idToAdd + '/full').then(
         async (Response) => {
           const data = await Response.json()
-          console.log(data)
-          // eslint-disable-next-line no-unused-expressions
-          data.playerInfo.playerName
-          $('#playerName').text(data.playerInfo.playerName)
-          $('#avatar').attr('src', 'https://new.scoresaber.com' + data.playerInfo.avatar)
-          $('#rank').text(data.playerInfo.rank)
-          $('#countryRank').text(data.playerInfo.countryRank)
-          $('#PP').text(data.playerInfo.pp)
+
+          if (data.playerInfo) {
+            const friend = {
+              playerName: data.playerInfo.playerName,
+              avatar: 'https://new.scoresaber.com' + data.playerInfo.avatar,
+              rank: data.playerInfo.rank,
+              countryRank: data.playerInfo.countryRank,
+              pp: data.playerInfo.pp
+            }
+            this.friends.push(friend)
+          }
         }
       )
     }

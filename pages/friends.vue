@@ -1,8 +1,8 @@
 <template>
   <b-card
+    img-src="https://upload.wikimedia.org/wikipedia/commons/9/91/Beat_Saber_Logo.png"
     :title="title"
-    img-src="https://picsum.photos/600/300/?image=25"
-    img-alt="Image"
+    img-alt="https://upload.wikimedia.org/wikipedia/commons/9/91/Beat_Saber_Logo.png"
     img-top
     tag="article"
     style="max-width: 20rem;"
@@ -23,12 +23,12 @@ export default {
   name: 'TestPage',
   data () {
     return {
-      title: 'hello'
+      title: 'Add a Friend'
     }
   },
   methods: {
     clickOnMe () {
-      this.title = 'how are you'
+      this.title = 'Unknown'
     }
   }
 }

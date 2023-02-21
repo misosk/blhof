@@ -1,10 +1,13 @@
-import path from 'path'
-import fs from 'fs'
+// BEGIN ... UNCOMMENT THIS SECTION IF NEED SSL ON LOCALHOST
+// import path from 'path'
+// import fs from 'fs'
+// END .... UNCOMMENT IF NEED SSL ON LOCALHOST
 
 export default {
   // Disable server-side rendering: https://go.nuxtjs.dev/ssr-mode
   ssr: false,
 
+  // BEGIN ... UNCOMMENT THIS SECTION  IF NEED SSL ON LOCALHOST
   // server: {
   //   port: 8080,
   //   host: '0',
@@ -14,6 +17,7 @@ export default {
   //     cert: fs.readFileSync(path.resolve(__dirname, 'server.crt'))
   //   }
   // },
+  // END .... UNCOMMENT IF NEED SSL ON LOCALHOST
 
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
